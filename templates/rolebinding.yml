@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1beta1
+ kind: RoleBinding
+ metadata:
+  name: $NAMESPACE_ID-ci
+  namespace: $NAMESPACE_ID
+ roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: admin
+ subjects:
+  - kind: ServiceAccount
+    name: $NAMESPACE_ID-ci
+    namespace: $NAMESPACE_ID
